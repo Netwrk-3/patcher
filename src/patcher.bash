@@ -64,4 +64,3 @@ then
 else
 	echo "Error please enter a valid argument (use patcher -h to see available arguments)"
 fi
-
