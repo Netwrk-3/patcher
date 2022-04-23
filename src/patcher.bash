@@ -3,11 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.8-beta"
-
-compare() (IFS=" "
-  exec awk "BEGIN{if (!($*)) exit(1)}"
-)
+version="0.1.9-beta"
 
 help_menu () {
    echo 'patcher -s [scan a kernel version for vulnebilities]'
