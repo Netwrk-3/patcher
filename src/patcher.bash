@@ -14,6 +14,18 @@ help_menu () {
    echo "patcher devs [patcher development team list]"
 }
 
+print_patcherscript() {
+    echo "Enter the vuln's CVE id: "
+    read vuln
+    if [ $vuln = "CVE-2022-0847" ]
+    then
+        echo 'Run the following command as root:'
+        echo 'sysctl kernel.unprivileged_bpf_disabled=1 && sysctl kernel.unprivileged_clone=0 && sysctl lvm.unprivileged_userfualtfd=0 && sysctl -p'
+    else
+        echo 'Error please enter a valid CVE id'
+    fi
+}
+
 if [ "$opt" = "-s" ];then
         if [ $kernel = "4.8.3" ] || [ $kernel = "4.8.4" ] || [ $kernel = "4.8.5" ] || [ $kernel = "4.8.6" ] || [ $kernel = "4.8.7" ];then 
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
@@ -44,15 +56,7 @@ elif [ "$opt" = "kernel" ];then
         echo "Endpoint kernel: $host_kernel"
         echo "Endpoint architecture: $host_arch"
 elif [ "$opt" = "-ps" ];then
-    echo "Enter the vuln's CVE id: "
-    read vuln
-    if [ $vuln = "CVE-2022-0847" ]
-    then
-        echo 'Run the following command as root:'
-        echo 'sysctl kernel.unprivileged_bpf_disabled=1 && sysctl kernel.unprivileged_clone=0 && sysctl lvm.unprivileged_userfualtfd=0 && sysctl -p'
-    else
-        echo 'Error please enter a valid CVE id'
-    fi
+   print_patchscript()
 elif [ "$opt" = "devs" ];then
     echo 'Patcher development team:'
     echo '1. Venkatesh Mishra (head developer)'
