@@ -3,12 +3,13 @@
 
 opt=$1
 kernel=$2
-version="0.1.12-beta"
+version="0.1.13-beta"
 
 help_menu () {
    echo 'patcher -s [scan a kernel version for vulnebilities]'
    echo 'patcher -v [print the version of patcher]'
    echo 'patcher -h [print the help menu]'
+   echo 'patcher -c [cleanup your system and free up disk space]'
    echo 'patcher -ps [show the command to patch a certain vulnebility]'
    echo 'patcher kernel [display the kernel you are currently using]'
    echo "patcher devs [patcher development team list]"
@@ -58,6 +59,20 @@ elif [ "$opt" = "devs" ];then
     echo '1. Venkatesh Mishra (head developer)'
     echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
     echo "patcher's official website: https://emph-inc.github.io/patcher"
+elif [ "$opt" = "-c" ];then
+    echo 'starting patcher cleanup script.'
+    echo 'deleting cache files...'
+    rm -rf /home/$USER/.cache/*
+    echo 'deleting temperary files...'
+    rm -rf /tmp/*
+    echo 'dropping cached memory...'
+    echo 3 > /proc/sys/vm/drop_caches
+    # on debian / ubuntu based systems
+    # echo 'removing orphan packages
+    # apt clean && apt autoremove
+    # on rhel / fedora based systems
+    # echo 'removing orphan packages
+    # dnf clean && dnf autoremove
 else
         echo "Error please enter a valid argument (use patcher -h to see available arguments)"
 fi
