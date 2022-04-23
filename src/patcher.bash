@@ -33,9 +33,9 @@ then
     elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ]
     then
         echo "Kernel version $kernel is secure"
-        else
-                echo "Kernel version $kernel is secure"
-        fi
+    else
+        echo "Kernel version $kernel is secure"
+    fi
 
 elif [ "$opt" = "-v" ]
 then
