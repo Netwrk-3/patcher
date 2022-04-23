@@ -33,9 +33,9 @@ then
     elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ]
     then
         echo "Kernel version $kernel is secure"
-    else
-        echo "Kernel version $kernel is secure"
-    fi
+        else
+                echo "Kernel version $kernel is secure"
+        fi
 
 elif [ "$opt" = "-v" ]
 then
@@ -68,6 +68,7 @@ then
     echo 'Patcher development team:'
     echo '1. Venkatesh Mishra (head developer)'
     echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
+    echo "patcher's official website: https://emph-inc.github.io/patcher"
 else
-    echo "Error please enter a valid argument (use patcher -h to see available arguments)"
+        echo "Error please enter a valid argument (use patcher -h to see available arguments)"
 fi
