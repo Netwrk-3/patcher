@@ -40,7 +40,7 @@ elif [ "$opt" = "-h" ];then
 # Print the endpoint kernel
 elif [ "$opt" = "kernel" ];then
         host_kernel=$(uname -rs) # Get the name & version of the kernel
-        host_arch=$(uname -m) # Get the Operating system's architecure
+        host_arch=$(uname -m) # Get the CPU's rchitecure
         echo "Endpoint kernel: $host_kernel"
         echo "Endpoint architecture: $host_arch"
 elif [ "$opt" = "-ps" ];then
