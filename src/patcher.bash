@@ -51,7 +51,7 @@ then
     host_arch=$(uname -m) # Get the Operating system's architecure
 	echo "Endpoint kernel: $host_kernel"
     echo "Endpoint architecture: $host_arch"
-elif [ $opt = "-ps" ]
+elif [ "$opt" = "-ps" ]
 then
     #vuln=$1
     echo "Enter the vuln's CVE id: "
@@ -63,7 +63,7 @@ then
     else
         echo 'Error please enter a valid CVE id'
     fi
-elif [ $opt = "devs" ]
+elif [ "$opt" = "devs" ]
 then
     echo 'Patcher development team:'
     echo '1. Venkatesh Mishra (head developer)'
