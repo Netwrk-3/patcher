@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.9-beta"
+version="0.1.10-beta"
 
 help_menu () {
    echo 'patcher -s [scan a kernel version for vulnebilities]'
@@ -30,9 +30,9 @@ then
     # Kernels in which CVE-2022-0847 is patched
     elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ]
     then
-        echo "$kernel is secure"
+        echo "Kernel version $kernel is secure"
 	else
-		echo "$kernel is secure"
+		echo "Kernel version $kernel is secure"
 	fi
 
 elif [ "$opt" = "-v" ]
@@ -45,8 +45,8 @@ then
 # Print the endpoint kernel
 elif [ "$opt" = "kernel" ]
 then
-	host_kernel=$(uname -rs)
-    host_arch=$(uname -m)
+	host_kernel=$(uname -rs) # Get the name & version of the kernel
+    host_arch=$(uname -m) # Get the Operating system's architecure
 	echo "Endpoint kernel: $host_kernel"
     echo "Endpoint architecture: $host_arch"
 elif [ $opt = "-ps" ]
@@ -64,3 +64,4 @@ then
 else
 	echo "Error please enter a valid argument (use patcher -h to see available arguments)"
 fi
+
