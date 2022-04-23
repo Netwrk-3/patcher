@@ -49,8 +49,10 @@ then
 # Print the endpoint kernel
 elif [ "$opt" = "kernel" ]
 then
-	host_kernel=$(uname -rsm)
+	host_kernel=$(uname -rs)
+    host_arch=$(uname -m)
 	echo "Endpoint kernel: $host_kernel"
+    echo "Endpoint architecture: $host_arch"
 elif [ $opt = "-ps" ]
 then
     #vuln=$1
