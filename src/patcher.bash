@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.11-beta"
+version="0.1.12-beta"
 
 help_menu () {
    echo 'patcher -s [scan a kernel version for vulnebilities]'
@@ -14,46 +14,36 @@ help_menu () {
    echo "patcher devs [patcher development team list]"
 }
 
-if [ "$opt" = "-s" ]
-then
-        if [ $kernel = "4.8.3" ] || [ $kernel = "4.8.4" ] || [ $kernel = "4.8.5" ] || [ $kernel = "4.8.6" ] || [ $kernel = "4.8.7" ]
-        then 
+if [ "$opt" = "-s" ];then
+        if [ $kernel = "4.8.3" ] || [ $kernel = "4.8.4" ] || [ $kernel = "4.8.5" ] || [ $kernel = "4.8.6" ] || [ $kernel = "4.8.7" ];then 
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2016-5195"
-        elif [ $kernel = "5.13" ] || [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ]
-        then
+        elif [ $kernel = "5.13" ] || [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2022-0847"
-        elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ]
-        then
+        elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2022-0742"
                 echo "CVE-2022-0847"
     # Kernels in which CVE-2022-0847 is patched
-    elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ]
-    then
-        echo "Kernel version $kernel is secure"
+        elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ];then
+                echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         else
-                echo "Kernel version $kernel is secure"
+                echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
 
-elif [ "$opt" = "-v" ]
-then
+elif [ "$opt" = "-v" ];then
         echo "Patcher version $version"
 
-elif [ "$opt" = "-h" ]
-then
+elif [ "$opt" = "-h" ];then
         help_menu
 # Print the endpoint kernel
-elif [ "$opt" = "kernel" ]
-then
+elif [ "$opt" = "kernel" ];then
         host_kernel=$(uname -rs) # Get the name & version of the kernel
         host_arch=$(uname -m) # Get the Operating system's architecure
         echo "Endpoint kernel: $host_kernel"
         echo "Endpoint architecture: $host_arch"
-elif [ "$opt" = "-ps" ]
-then
-    #vuln=$1
+elif [ "$opt" = "-ps" ];then
     echo "Enter the vuln's CVE id: "
     read vuln
     if [ $vuln = "CVE-2022-0847" ]
@@ -63,8 +53,7 @@ then
     else
         echo 'Error please enter a valid CVE id'
     fi
-elif [ "$opt" = "devs" ]
-then
+elif [ "$opt" = "devs" ];then
     echo 'Patcher development team:'
     echo '1. Venkatesh Mishra (head developer)'
     echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
