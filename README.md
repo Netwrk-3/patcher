@@ -5,34 +5,10 @@ Patcher is a system maintainence tool for Linux, developed by Venkatesh Mishra. 
 ## Why use patcher
 
 Patcher makes it easy to do tasks such as finding vulnebilities in your System kernel and patching them. cleaning up uncesscary files, etc. Patcher can do all of this for you. 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Emph-Inc/patcher/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Getting started
+To get started with patcher you need to install it first. For that you need to choose a branch from which you're going to download the patcher executable.
+We have three branches in our Github repository:
+1. stable
+2. testing
+3. beta
