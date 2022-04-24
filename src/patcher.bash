@@ -19,7 +19,7 @@ if [ "$opt" = "-s" ];then
         if [ $kernel = "4.8.3" ] || [ $kernel = "4.8.4" ] || [ $kernel = "4.8.5" ] || [ $kernel = "4.8.6" ] || [ $kernel = "4.8.7" ];then 
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2016-5195"
-        elif [ $kernel = "5.13" ] || [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ];then
+        elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2022-0847"
         elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ];then
