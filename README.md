@@ -25,3 +25,33 @@ sudo cp ./patcher /usr/local/bin
 ```
 ## Check if patcher is installed properly
 ![image](https://user-images.githubusercontent.com/104187311/164965843-09ac7236-474d-4a85-95a4-3d29606e40f0.png)
+
+<details>
+<summary>How do I dropdown?</summary>
+<br>
+This is how you dropdown.
+<br><br>
+<pre>
+&lt;details&gt;
+&lt;summary&gt;How do I dropdown?&lt;&#47;summary&gt;
+&lt;br&gt;
+This is how you dropdown.
+&lt;&#47;details&gt;
+</pre>
+</details>
+
+---
+
+<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+<br><br>
+<pre>
+&lt;details open&gt;
+&lt;summary&gt;Want to ruin the surprise?&lt;&#47;summary&gt;
+&lt;br&gt;
+Well, you asked for it!
+&lt;&#47;details&gt;
+</pre>
+</details>
