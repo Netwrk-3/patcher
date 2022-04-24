@@ -12,3 +12,5 @@ We have three branches in our Github repository:
 1. stable
 2. testing
 3. beta
+
+Download the latest stable releease !(here)[https://google.com]
