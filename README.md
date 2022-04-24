@@ -15,3 +15,13 @@ We have three branches in our Github repository:
 
 Download the latest stable releease [here](https://github.com/Emph-Inc/patcher/releases/download/stable-0.1.7/patcher).
 Download the beta release [here](https://github.com/Emph-Inc/patcher/releases/download/beta-0.1.13/patcher).
+
+## Installing Patcher
+To install patcher you need yo choose if you want the latest stable release or the latest beta release. We recomend using the stable release for most people. 
+
+Download the patcher executable from the links given above. Once you have your preffered release and downloaded the executeable, then cd into the directry where you have kept the downloaded executable and then run the following command
+```bash
+sudo cp ./patcher /usr/local/bin
+```
+Check if patcher is installed:
+![image](https://user-images.githubusercontent.com/104187311/164965843-09ac7236-474d-4a85-95a4-3d29606e40f0.png)
