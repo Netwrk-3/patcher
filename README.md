@@ -19,7 +19,7 @@ Download the beta release [here](https://github.com/Emph-Inc/patcher/releases/do
 ## Installing Patcher
 To install patcher you need yo choose if you want the latest stable release or the latest beta release. We recomend using the stable release for most people. 
 
-Download the patcher executable from the links given above. Once you have your preffered release and downloaded the executeable, then cd into the directry where you have kept the downloaded executable and then run the following command
+Download the patcher executable from the links given above. Once you have your preffered release and downloaded the executeable, then cd into the directry where you have kept the downloaded executable and then run the following command. (You can also do the same by cloning into the Github repository).
 ```bash
 sudo cp ./patcher /usr/local/bin
 ```
