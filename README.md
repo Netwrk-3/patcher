@@ -43,7 +43,7 @@ This is how you dropdown.
 ---
 
 <details open>
-<summary>Want to ruin the surprise?</summary>
+<summary>How to contribute to patcher</summary>
 <br>
 Well, you asked for it!
 <br><br>
