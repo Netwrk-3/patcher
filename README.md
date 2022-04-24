@@ -13,5 +13,5 @@ We have three branches in our Github repository:
 2. testing
 3. beta
 
-Download the latest stable releease [here](https://google.com).
+Download the latest stable releease [here](https://github.com/Emph-Inc/patcher/releases/download/stable-0.1.7/patcher).
 Download the beta release [here](https://google.com).
