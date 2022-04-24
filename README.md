@@ -28,16 +28,12 @@ sudo cp ./patcher /usr/local/bin
 
 ## FAQs
 <details>
-<summary>How do I dropdown?</summary>
+<summary>How does the release cycle of patcher work ?</summary>
 <br>
-This is how you dropdown.
+Patcher's release cycle has three main brachnes. The stable branch, the testing branch and the beta branch. The beta branch is where new feautres are added to patcher and they are worked. The beta branch's code has some bugs which get's patched in the testing branch. In the testing the code from the beta branch gets edited to make if faster and more lightweight. We aslo try patcher on different architectures and also on different distros before releasing it to the stable brach. We recomend you to use the stable version of patcher to avoid errors and bugs.
 <br><br>
 <pre>
-&lt;details&gt;
-&lt;summary&gt;How do I dropdown?&lt;&#47;summary&gt;
-&lt;br&gt;
-This is how you dropdown.
-&lt;&#47;details&gt;
+Question asked at 16:33 UTC 23 April 2022
 </pre>
 </details>
 
