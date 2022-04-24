@@ -26,6 +26,7 @@ sudo cp ./patcher /usr/local/bin
 ## Check if patcher is installed properly
 ![image](https://user-images.githubusercontent.com/104187311/164965843-09ac7236-474d-4a85-95a4-3d29606e40f0.png)
 
+## FAQs
 <details>
 <summary>How do I dropdown?</summary>
 <br>
@@ -45,13 +46,9 @@ This is how you dropdown.
 <details open>
 <summary>How to contribute to patcher</summary>
 <br>
-Well, you asked for it!
+You can contribute code to patcher from our github repository at https://github.com/Emph-Inc/patcher
 <br><br>
 <pre>
-&lt;details open&gt;
-&lt;summary&gt;Want to ruin the surprise?&lt;&#47;summary&gt;
-&lt;br&gt;
-Well, you asked for it!
-&lt;&#47;details&gt;
+Question asked at 13:56 IST 22 April 2022
 </pre>
 </details>
