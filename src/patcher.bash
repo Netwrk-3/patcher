@@ -15,7 +15,7 @@ help_menu () {
 }
 
 if [ "$opt" = "-s" ];then
-        if [ $kernel = "4.8.3" ] || [ $kernel = "4.8.4" ] || [ $kernel = "4.8.5" ] || [ $kernel = "4.8.6" ] || [ $kernel = "4.8.7" ];then 
+        if [ $kernel = "4.8.3" ];then 
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2016-5195"
         elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ];then
@@ -43,6 +43,7 @@ elif [ "$opt" = "kernel" ];then
         host_arch=$(uname -m) # Get the CPU's rchitecure
         echo "Endpoint kernel: $host_kernel"
         echo "Endpoint architecture: $host_arch"
+
 elif [ "$opt" = "devs" ];then
     echo 'Patcher development team:'
     echo '1. Venkatesh Mishra (head developer)'
