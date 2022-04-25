@@ -20,7 +20,11 @@ Download the patcher executable from the links given above. Once you have your p
 sudo cp ./patcher /usr/local/bin
 ```
 ## Check if patcher is installed properly
+* on a debian based system:
 ![image](https://user-images.githubusercontent.com/104187311/164965843-09ac7236-474d-4a85-95a4-3d29606e40f0.png)
+* on a fedora based system:
+* ![image](https://user-images.githubusercontent.com/104187311/165018722-46efa242-be14-433d-8d5d-d9e19bf3a718.png)
+
 
 ## FAQs
 <details>
