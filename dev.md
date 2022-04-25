@@ -3,3 +3,5 @@
 * Programming Language used: Bash
 * Text editor used: Vim
 * OS used: GNU/Linux
+* Debian based testing system: Kali GNU/Linux
+* Rhel based testing system: Fedora
