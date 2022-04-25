@@ -3,7 +3,9 @@
 
 opt=$1
 kernel=$2
-version="0.1.14-beta"
+version="0.1.15-beta"
+RED='\033[0;31m'
+NC='\033[0m'
 
 help_menu () {
    echo 'patcher -s [scan a kernel version for vulnebilities]'
@@ -64,5 +66,5 @@ elif [ "$opt" = "-c" ];then
     # echo 'removing orphan packages
     # dnf clean && dnf autoremove
 else
-        echo "Error please enter a valid argument (use patcher -h to see available arguments)"
+        echo "${RED}Error please enter a valid argument (use patcher -h to see available arguments)${NC}"
 fi
