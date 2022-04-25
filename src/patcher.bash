@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-iversion="0.1.14-beta"
+version="0.1.14-beta"
 
 help_menu () {
    echo 'patcher -s [scan a kernel version for vulnebilities]'
