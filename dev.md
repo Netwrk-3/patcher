@@ -4,5 +4,5 @@
 * Text editor used: Vim
 * OS used: GNU/Linux
 * Debian based testing system: Ubuntu LTS / Debian stable / Kali Linux
-* Rhel based testing system: Fedora
+* Rhel based testing system: Fedora / Rockylinux
 * Development system: Arch Linux
