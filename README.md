@@ -22,8 +22,10 @@ sudo cp ./patcher /usr/local/bin
 ## Check if patcher is installed properly
 * on a debian based system:
 ![image](https://user-images.githubusercontent.com/104187311/165019626-4daaf15f-d47e-43c4-b7c9-c525498f0b3a.png)
+---
 * on a fedora based system:
 ![image](https://user-images.githubusercontent.com/104187311/165018722-46efa242-be14-433d-8d5d-d9e19bf3a718.png)
+---
 * on my system:
 ![image](https://user-images.githubusercontent.com/104187311/165705109-2ef50228-ce13-4922-bd97-f1cb342bc688.png)
 
