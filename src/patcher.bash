@@ -3,7 +3,9 @@
 
 opt=$1
 kernel=$2
-version="0.1.18-beta"
+version="0.1.19-beta"
+RED='\033[0;31m'
+NC='\033[0m'
 
 help_menu () {
    echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]'
@@ -67,7 +69,7 @@ elif [ "$opt" = "devs" ];then
     echo '1. Venkatesh Mishra (head developer)'
     echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
     echo "patcher's official website: https://emph-inc.github.io/patcher"
-elif [ "$opt" = "-c" ] || [ $opt = "--clean" ];then
+elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
     echo 'starting patcher cleanup script.'
     echo 'deleting cache files...'
     rm -rf /home/$USER/.cache/*
@@ -88,5 +90,5 @@ elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    echo "Hardening you linux kernel..."
    systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
 else
-        echo "Error please enter a valid argument (use patcher -h to see available arguments)"
+   printf "${RED}Error:${NC} please enter a valid argument (use patcher -h to see valid arguments)\n"
 fi
