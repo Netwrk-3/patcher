@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.16-beta"
+version="0.1.17-beta"
 
 help_menu () {
    echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]'
@@ -15,11 +15,12 @@ help_menu () {
    echo "patcher devs [patcher development team list]"
 }
 
+# patcher's Linux kernel vulnebility scanner
 if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
         if [ $kernel = "4.8.3" ];then 
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2016-5195"
-        elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ];then
+        elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ] || [ $kernel = "5.12" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2022-0847"
         elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ];then
@@ -29,7 +30,22 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
     # Kernels in which CVE-2022-0847 is patched
         elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ];then
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
-        else
+        elif [ $kernel = "4.11" ] || [ $kernel = "4.9.6" ]; then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2017-18017"
+        elif [ $kernel = "2.6" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2015-8812"
+        elif [ $kernel = "3.2" ] || [ $kernel = "3.13" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2016-10229" 
+        elif [ $kernel = "3.13.6" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2014-2523"
+        elif [ $kernel = "4.8.13" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2016-10150"
+        else    
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
 
