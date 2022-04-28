@@ -90,7 +90,7 @@ elif [ "$opt" = "update" ];then
      echo "updating patcher..."
      git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
 elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
-   echo "Hardening you linux kernel..."
+   echo "Hardening your linux kernel..."
    systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
 else
    printf "${RED}Error:${NC} please enter a valid argument (use patcher -h to see valid arguments)\n"
