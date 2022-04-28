@@ -3,20 +3,19 @@
 
 opt=$1
 kernel=$2
-version="0.1.15-beta"
-RED='\033[0;31m'
-NC='\033[0m'
+version="0.1.16-beta"
 
 help_menu () {
-   echo 'patcher -s [scan a kernel version for vulnebilities]'
-   echo 'patcher -v [print the version of patcher]'
-   echo 'patcher -h [print the help menu]'
-   echo 'patcher -c [cleanup your system and free up disk space]'
+   echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]'
+   echo 'patcher -v or patcher --version [print the version of patcher]'
+   echo 'patcher -h or patcher --help [print the help menu]'
+   echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]'
    echo 'patcher kernel [display the kernel you are currently using]'
+   echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher devs [patcher development team list]"
 }
 
-if [ "$opt" = "-s" ];then
+if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
         if [ $kernel = "4.8.3" ];then 
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2016-5195"
@@ -34,10 +33,10 @@ if [ "$opt" = "-s" ];then
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
 
-elif [ "$opt" = "-v" ];then
+elif [ "$opt" = "-v" ] || [ "$opt" = "--version" ];then
         echo "Patcher version $version"
 
-elif [ "$opt" = "-h" ];then
+elif [ "$opt" = "-h" ] || [ "$opt" = "--help" ];then
         help_menu
 # Print the endpoint kernel
 elif [ "$opt" = "kernel" ];then
@@ -51,7 +50,7 @@ elif [ "$opt" = "devs" ];then
     echo '1. Venkatesh Mishra (head developer)'
     echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
     echo "patcher's official website: https://emph-inc.github.io/patcher"
-elif [ "$opt" = "-c" ];then
+elif [ "$opt" = "-c" ] || [ $opt = "--clean" ];then
     echo 'starting patcher cleanup script.'
     echo 'deleting cache files...'
     rm -rf /home/$USER/.cache/*
@@ -65,6 +64,9 @@ elif [ "$opt" = "-c" ];then
     # on rhel / fedora based systems
     # echo 'removing orphan packages
     # dnf clean && dnf autoremove
+elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
+   echo "Hardening you linux kernel..."
+   systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
 else
-        echo "${RED}Error please enter a valid argument (use patcher -h to see available arguments)${NC}"
+        echo "Error please enter a valid argument (use patcher -h to see available arguments)"
 fi
