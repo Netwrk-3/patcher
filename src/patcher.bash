@@ -83,6 +83,9 @@ elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
     # on rhel / fedora based systems
     # echo 'removing orphan packages
     # dnf clean && dnf autoremove
+    # on arch linux / manjaro based systems:
+    # echo 'cleaning package cache and removing synced repositories:'
+    # pacman -Scc && rm /var/lib/pacman/sync/*db
 elif [ "$opt" = "update" ];then
      echo "updating patcher..."
      git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
