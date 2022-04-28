@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.19-beta"
+version="0.1.20-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 
