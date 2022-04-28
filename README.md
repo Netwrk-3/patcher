@@ -27,8 +27,7 @@ sudo cp ./patcher /usr/local/bin
 ![image](https://user-images.githubusercontent.com/104187311/165018722-46efa242-be14-433d-8d5d-d9e19bf3a718.png)
 ---
 * on my system:
-![image](https://user-images.githubusercontent.com/104187311/165705109-2ef50228-ce13-4922-bd97-f1cb342bc688.png)
-
+![image](https://user-images.githubusercontent.com/104187311/165716451-7524c246-dd59-4c6e-bc18-d569ffc8a58a.png)
 
 ## FAQs
 <details>
