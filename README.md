@@ -10,7 +10,7 @@ We have three branches in our Github repository:
 3. beta
 
 Download the latest stable releease [here](https://github.com/Emph-Inc/patcher/releases/download/stable-0.1.14/patcher).
-Download the beta release [here](https://github.com/Emph-Inc/patcher/releases/download/beta-0.1.13/patcher).
+Download the beta release [here](https://github.com/Emph-Inc/patcher/releases/download/beta-0.1.16/patcher).
 
 ## Installing Patcher
 To install patcher you need yo choose if you want the latest stable release or the latest beta release. We recomend using the stable release for most people. 
