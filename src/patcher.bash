@@ -1,4 +1,5 @@
 # Copyright (c) 2022 Venkatesh Mishra. All rights reserved
+# Copyright (C) 2022 Netwrk-3, Inc. All rights reserved.
 #!/bin/bash
 
 opt=$1
