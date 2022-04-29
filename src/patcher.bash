@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.20-beta"
+version="0.1.22-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -16,6 +16,19 @@ help_menu () {
    echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher update [update patcher to the latest stable release]"
    echo "patcher devs [patcher development team list]"
+}
+
+update_patcher() {
+        check_priv()
+        {
+                if [ "$(id -u)" -ne 0 ]; then
+                        echo "Patcher needs to be updated with root privilages"
+                fi
+        }
+        check_priv
+        echo "updating patcher..."
+        git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
+
 }
 
 # patcher's Linux kernel vulnebility scanner
@@ -48,6 +61,15 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
         elif [ $kernel = "4.8.13" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
                 echo "CVE-2016-10150"
+        elif [ $kernel = "2.6.34" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2010-252"
+        elif [ $kernel = "4.3" ] || [ $kernel = "4.2" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echo "CVE-2017-13715"
+        elif [ $kernel = "4.5.2" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
+                echho "CVE-2016-7117"
         else    
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
@@ -87,8 +109,7 @@ elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
     # echo 'cleaning package cache and removing synced repositories:'
     # pacman -Scc && rm /var/lib/pacman/sync/*db
 elif [ "$opt" = "update" ];then
-     echo "updating patcher..."
-     git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
+     update_patcher
 elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    echo "Hardening your linux kernel..."
    systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
