@@ -85,8 +85,8 @@ elif [ "$opt" = "kernel" ];then
 elif [ "$opt" = "devs" ];then
     echo 'Patcher development team:'
     echo '1. Venkatesh Mishra (head developer)'
-    echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
-    echo "patcher's official website: https://emph-inc.github.io/patcher"
+    echo "See patcher's source code at: https://github.com/Netwrk-3/patcher"
+    echo "patcher's official website: https://netwrk-3.github.io/patcher/"
 elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
         if [ "$(id -u)" -ne 0 ]; then
                 printf "${RED}[!] Error:${NC} patcher's cleanup script requires evelavted privilages!\n"
