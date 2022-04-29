@@ -3,7 +3,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.22-beta"
+version="0.1.23-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -20,7 +20,7 @@ help_menu () {
 
 update_patcher() {
         if [ "$(id -u)" -ne 0 ]; then
-                echo "Patcher needs to be updated with root privilages"
+                printf "${RED}[!] Error:${NC} Patcher needs to be updated with root privilages\n"
         else
                 echo "updating patcher..."
                 git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
@@ -88,27 +88,31 @@ elif [ "$opt" = "devs" ];then
     echo "See patcher's source code at: https://github.com/Emph-Inc/patcher"
     echo "patcher's official website: https://emph-inc.github.io/patcher"
 elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
-    echo 'starting patcher cleanup script.'
-    echo 'deleting cache files...'
-    rm -rf /home/$USER/.cache/*
-    echo 'deleting temperary files...'
-    rm -rf /tmp/*
-    echo 'dropping cached memory...'
-    echo 3 > /proc/sys/vm/drop_caches
-    # on debian / ubuntu based systems
-    # echo 'removing orphan packages
-    # apt clean && apt autoremove
-    # on rhel / fedora based systems
-    # echo 'removing orphan packages
-    # dnf clean && dnf autoremove
-    # on arch linux / manjaro based systems:
-    # echo 'cleaning package cache and removing synced repositories:'
-    # pacman -Scc && rm /var/lib/pacman/sync/*db
+        if [ "$(id -u)" -ne 0 ]; then
+                printf "${RED}[!] Error:${NC} patcher's cleanup script requires evelavted privilages!\n"
+        else
+            echo 'starting patcher cleanup script.'
+            echo 'deleting cache files...'
+            rm -rf /home/$USER/.cache/*
+            echo 'deleting temperary files...'
+            rm -rf /tmp/*
+            echo 'dropping cached memory...'
+            echo 3 > /proc/sys/vm/drop_caches
+            # on debian / ubuntu based systems
+            # echo 'removing orphan packages
+            # apt clean && apt autoremove
+            # on rhel / fedora based systems
+            # echo 'removing orphan packages
+            # dnf clean && dnf autoremove
+            # on arch linux / manjaro based systems:
+            # echo 'cleaning package cache and removing synced repositories:'
+            # pacman -Scc && rm /var/lib/pacman/sync/*db
+        fi
 elif [ "$opt" = "update" ];then
      update_patcher
 elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    echo "Hardening your linux kernel..."
    systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
 else
-   printf "${RED}Error:${NC} please enter a valid argument (use patcher -h to see valid arguments)\n"
+   printf "${RED}[!] Error:${NC} please enter a valid argument (use patcher -h to see valid arguments)\n"
 fi
