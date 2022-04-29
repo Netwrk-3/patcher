@@ -5,4 +5,4 @@
 * OS used: GNU/Linux
 * Debian based testing system: Ubuntu LTS / Debian stable / Kali Linux
 * Rhel based testing system: Fedora / Rockylinux
-* Development system: Arch Linux
+* Development system: Blackarch Linux
