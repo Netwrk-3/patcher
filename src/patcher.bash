@@ -19,16 +19,12 @@ help_menu () {
 }
 
 update_patcher() {
-        check_priv()
-        {
-                if [ "$(id -u)" -ne 0 ]; then
-                        echo "Patcher needs to be updated with root privilages"
-                fi
-        }
-        check_priv
-        echo "updating patcher..."
-        git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
-
+        if [ "$(id -u)" -ne 0 ]; then
+                echo "Patcher needs to be updated with root privilages"
+        else
+                echo "updating patcher..."
+                git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
+        fi
 }
 
 # patcher's Linux kernel vulnebility scanner
