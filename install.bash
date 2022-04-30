@@ -9,7 +9,7 @@ check_priv()
 
 main() {
 	check_priv
-  echo "installing patcher..."
+  	echo "installing patcher..."
 	cd src && chmod +x patcher && cp ./patcher /usr/local/bin
 }
 
