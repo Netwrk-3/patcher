@@ -1,16 +1,15 @@
 #!/bin/bash
 
-check_priv()
-{
-  if [ "$(id -u)" -ne 0 ]; then
-    err "you must be root"
-  fi
-}
+RED='\033[0;31m'
+NC='\033[0m'
 
 main() {
-	check_priv
-  	echo "installing patcher..."
-	cd src && chmod +x patcher && cp ./patcher /usr/local/bin
+	if [ "$(id -u)" -ne 0 ]; then
+   		printf "${RED}[!] Error:${NC} patcher's installation script requires evelavted privilages!\n"
+  	else	
+		echo "installing patcher..."
+		cd src && chmod +x patcher && cp ./patcher /usr/local/bin
+	fi
 }
 
 main
