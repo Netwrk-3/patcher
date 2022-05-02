@@ -28,7 +28,7 @@ sudo ./install.bash
 ![image](https://user-images.githubusercontent.com/104187311/165018722-46efa242-be14-433d-8d5d-d9e19bf3a718.png)
 ---
 * on my system:
-![image](https://user-images.githubusercontent.com/104187311/165716451-7524c246-dd59-4c6e-bc18-d569ffc8a58a.png)
+![image](https://user-images.githubusercontent.com/104187311/166226609-926a1d76-2558-4e75-8a5c-90490f8f6470.png)
 
 ## FAQs
 <details>
