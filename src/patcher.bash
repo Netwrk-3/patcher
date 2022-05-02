@@ -4,7 +4,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.24-beta"
+version="0.1.25-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -14,6 +14,7 @@ help_menu () {
    echo 'patcher -h or patcher --help [print the help menu]'
    echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]'
    echo 'patcher kernel [display the kernel you are currently using]'
+   echo "patcher ip [display your system's public ip adress]"
    echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher update [update patcher to the latest stable release]"
    echo "patcher devs [patcher development team list]"
@@ -66,7 +67,7 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "CVE-2017-13715"
         elif [ $kernel = "4.5.2" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: "
-                echho "CVE-2016-7117"
+                echo "CVE-2016-7117"
         else    
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
@@ -111,6 +112,9 @@ elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
         fi
 elif [ "$opt" = "update" ];then
      update_patcher
+elif [ "$opt" = "ip" ];then
+	ip=$(curl -s 'api.ipify.org')
+	echo "Public IP adress: $ip"
 elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    echo "Hardening your linux kernel..."
    systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
