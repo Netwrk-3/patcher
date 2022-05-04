@@ -31,9 +31,13 @@ update_patcher() {
 }
 
 secure_reboot() {
-	killall $USER
-	echo 3 > /proc/sys/vm/drop_caches
-	reboot
+	if [ "$(id -u)" -ne 0 ];then
+		printf "${RED}[!] Error:${NC} Try again with sudo or doas!\n"
+	else
+		killall $USER
+		echo 3 > /proc/sys/vm/drop_caches
+		reboot # works best with systemd
+	fi
 }
 
 # patcher's Linux kernel vulnebility scanner
