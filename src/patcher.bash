@@ -4,7 +4,7 @@
 
 opt=$1
 kernel=$2
-version="0.1.25-beta"
+version="0.1.26-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -15,6 +15,7 @@ help_menu () {
    echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]'
    echo 'patcher kernel [display the kernel you are currently using]'
    echo "patcher ip [display your system's public ip adress]"
+   echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]"
    echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher update [update patcher to the latest stable release]"
    echo "patcher devs [patcher development team list]"
@@ -27,6 +28,12 @@ update_patcher() {
                 echo "updating patcher..."
                 git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
         fi
+}
+
+secure_reboot() {
+	killall $USER
+	echo 3 > /proc/sys/vm/drop_caches
+	reboot
 }
 
 # patcher's Linux kernel vulnebility scanner
@@ -115,6 +122,8 @@ elif [ "$opt" = "update" ];then
 elif [ "$opt" = "ip" ];then
 	ip=$(curl -s 'api.ipify.org')
 	echo "Public IP adress: $ip"
+elif [ "$opt" = "--restart" ];then
+	secure_reboot
 elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    echo "Hardening your linux kernel..."
    systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
