@@ -16,6 +16,7 @@ help_menu () {
    echo 'patcher kernel [display the kernel you are currently using]'
    echo "patcher ip [display your system's public ip adress]"
    echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]"
+   echo "patcher distro [print the name of the Linux distro you are using]"
    echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher update [update patcher to the latest stable release]"
    echo "patcher devs [patcher development team list]"
@@ -38,6 +39,13 @@ secure_reboot() {
 		echo 3 > /proc/sys/vm/drop_caches
 		reboot # works best with systemd
 	fi
+}
+
+get_distro() {
+	# Case 1
+	# cat /etc/*lease
+	# Case 2
+	# lsb_release -cs
 }
 
 # patcher's Linux kernel vulnebility scanner
