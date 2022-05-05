@@ -16,7 +16,7 @@ help_menu () {
    echo 'patcher kernel [display the kernel you are currently using]'
    echo "patcher ip [display your system's public ip adress]"
    echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]"
-   echo "patcher distro [print the name of the Linux distro you are using]"
+   #echo "patcher distro [print the name of the Linux distro you are using]"
    echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher update [update patcher to the latest stable release]"
    echo "patcher devs [patcher development team list]"
