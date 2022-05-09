@@ -17,6 +17,7 @@ To install patcher you need yo choose if you want the latest stable release or t
 
 Download the patcher executable from the links given above. Once you have your preffered release and downloaded the executeable, then cd into the directry where you have kept the downloaded executable and then run the following command. (You can also do the same by cloning into the Github repository).
 ```bash
+git clone https://github.com/Netwrk-3/patcher.git
 chmod +x
 sudo ./install.bash
 ```
