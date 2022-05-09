@@ -3,7 +3,7 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.27-beta"
+version="0.1.28-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 help_menu () {
@@ -14,7 +14,6 @@ help_menu () {
    echo 'patcher kernel [display the kernel you are currently using]'
    echo "patcher ip [display your system's public ip adress]"
    echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]"
-   #echo "patcher distro [print the name of the Linux distro you are using]"
    echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]"
    echo "patcher update [update patcher to the latest stable release]"
    echo "patcher devs [patcher development team list]"
@@ -108,6 +107,7 @@ elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
             rm -rf /home/$USER/.cache/*
             echo 'deleting temperary files...'
             rm -rf /tmp/*
+	    rm -rf /var/tmp/*
             echo 'dropping cached memory...'
             echo 3 > /proc/sys/vm/drop_caches
         fi
