@@ -3,7 +3,7 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.30-beta"
+version="0.1.31-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 help_menu () {
@@ -20,7 +20,7 @@ secure_reboot() {
 	if [ "$(id -u)" -ne 0 ];then
 		printf "${RED}[!] Error:${NC} Try again with sudo or doas!\n"
 	else
-		killall $USER && echo 3 > /proc/sys/vm/drop_caches && reboot # works best with systemd
+		killall $USER && echo 3 > /proc/sys/vm/drop_caches && patcher -c && reboot # works best with systemd
 	fi
 }
 # patcher's Linux kernel vulnebility scanner
@@ -78,7 +78,7 @@ elif [ "$opt" = "devs" ];then
     echo 'Patcher development team:' && echo '1. Venkatesh Mishra (head developer)' && echo "See patcher's source code at: https://github.com/Netwrk-3/patcher" && echo "patcher's official website: https://netwrk-3.github.io/patcher/"
 elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
         if [ "$(id -u)" -ne 0 ]; then
-                printf "${RED}[!] Error:${NC} patcher's cleanup script requires evelavted privilages!\n"
+            printf "${RED}[!] Error:${NC} patcher's cleanup script requires evelavted privilages!\n"
         else
             echo 'starting patcher cleanup script.' && echo 'deleting cache files...' && rm -rf /home/$USER/.cache/* && echo 'deleting temperary files...' && rm -rf /tmp/* && rm -rf /var/tmp/* && echo 'dropping cached memory...' && echo 3 > /proc/sys/vm/drop_caches
         fi
