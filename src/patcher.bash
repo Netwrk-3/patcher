@@ -3,11 +3,11 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.33-beta"
+version="0.1.34-beta"
 RED='\033[0;31m'
 NC='\033[0m'
 help_menu () {
-   echo "patcher: The ultimate Linux system maintainence and security tool." && echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]' && echo 'patcher -v or patcher --version [print the version of patcher]' && echo 'patcher -h or patcher --help [print the help menu]' && echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]' && echo 'patcher kernel [display the kernel you are currently using]' && echo "patcher ip [display your system's public ip adress]" && echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]" && echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]" && echo "patcher update [update patcher to the latest stable release]" && echo "patcher devs [patcher development team list]"
+   echo "patcher: The ultimate Linux system maintainence and security tool." && echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]' && echo 'patcher -v or patcher --version [print the version of patcher]' && echo 'patcher -h or patcher --help [display the help menu]' && echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]' && echo 'patcher kernel [display the kernel you are currently using]' && echo "patcher ip [display your system's public ip adress]" && echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]" && echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]" && echo "patcher update [update patcher to the latest stable release]" && echo "patcher devs [patcher development team list]"
 }
 update_patcher() {
         if [ "$(id -u)" -ne 0 ]; then
@@ -29,7 +29,7 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
         elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ] || [ $kernel = "5.12" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-0847"
         elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ];then
-                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-0742" && echo "CVE-2022-0847"
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-0742" && echo "CVE-2022-0847" && echo "CVE-2021-33909"
     # Kernels in which CVE-2022-0847 is patched
         elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ];then
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
@@ -70,7 +70,23 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
         elif [ $kernel = "5.15.11" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-45469"
         elif [ $kernel = "5.15.rc-5" ];then
-                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && secho "CVE-2021-45402"
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-45402"
+        elif [ $kernel = "5.10" ] || [ $kernel = "5.14.6" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-41073"
+        elif [ $kernel = "5.13.5" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-37576"
+        elif [ $kernel = "5.13.2" ] || [ $kernel = "5.13.3" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-33909"
+        elif [ $kernel = "5.12.7" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-33200"
+        elif [ $kernel = "5.11.12" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-29154"
+        elif [ $kernel = "5.11.8" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-28972"
+        elif [ $kernel = "5.11.6" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-28660" && echo "CVE-2021-28375"
+        elif [ $kernel = "5.10.11" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-3347"
         else
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
