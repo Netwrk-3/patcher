@@ -24,12 +24,12 @@ secure_reboot() {
 	fi
 }
 if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
-        if [ $kernel = "4.8.3" ];then
+ if [ $kernel = "4.8.3" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2016-5195"
         elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ] || [ $kernel = "5.12" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-0847"
         elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ];then
-                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-0742" && echo "CVE-2022-0847"
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-0742" && echo "CVE-2022-0847" && echo "CVE-2021-33909"
     # Kernels in which CVE-2022-0847 is patched
         elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ];then
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
@@ -65,10 +65,31 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-27223" && echo "CVE-2022-2696"
         elif [ $kernel = "5.16.3" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-26878"
+        elif [ $kernel = "5.15.14" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2022-23222"
+        elif [ $kernel = "5.15.11" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-45469"
+        elif [ $kernel = "5.15.rc-5" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-45402"
+        elif [ $kernel = "5.10" ] || [ $kernel = "5.14.6" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-41073"
+        elif [ $kernel = "5.13.5" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-37576"
+        elif [ $kernel = "5.13.2" ] || [ $kernel = "5.13.3" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-33909"
+        elif [ $kernel = "5.12.7" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-33200"
+        elif [ $kernel = "5.11.12" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-29154"
+        elif [ $kernel = "5.11.8" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-28972"
+        elif [ $kernel = "5.11.6" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-28660" && echo "CVE-2021-28375"
+        elif [ $kernel = "5.10.11" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablilities: " && echo "CVE-2021-3347"
         else
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
-
 elif [ "$opt" = "-v" ] || [ "$opt" = "--version" ];then
         echo "Patcher version $version"
 elif [ "$opt" = "-h" ] || [ "$opt" = "--help" ];then
