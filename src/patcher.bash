@@ -3,7 +3,7 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.32.4-lts"
+version="0.1.32.5-stable"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -108,6 +108,12 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-32981"
         elif [ $kernel == "5.13.3" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-41222"
+        elif [ $kernel == "5.19.10" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-41218"
+        elif [ $kernel == "5.19.9" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-40768"
+        elif [ $kernel == "5.15.62" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-40476"
         else
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
