@@ -3,7 +3,7 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.32.5-stable"
+version="0.1.32.7-stable"
 RED='\033[0;31m'
 NC='\033[0m'
 
