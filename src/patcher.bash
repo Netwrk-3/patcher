@@ -3,7 +3,7 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.32.8-stable"
+version="0.1.32.9-stable"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -150,6 +150,12 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-40768"
          elif [ $kernel == "5.15.62" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-40476"
+	elif [ $kernel == "5.19.8" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-40307"
+	elif [ $kernel == "5.19" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-39842"
+	elif [ $kernel == "5.18.17" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-39189"
 	 
         else
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
@@ -184,6 +190,8 @@ elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    	echo "Hardening your linux kernel..."
    	systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
    fi
+elif [ "$opt" = "-shk" ];then
+    kernel=$(uname -r) && bash patcher.bash -s $kernel
 else
     printf "${RED}[!] Error:${NC} please enter a valid argument (use patcher -h to see valid arguments)\n"
 fi
