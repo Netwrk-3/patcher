@@ -36,6 +36,8 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
     # Kernels in which CVE-2022-0847 is patched
         elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ];then
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
+	elif [ $kernel = "5.16.10" ];then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-25375"
         elif [ $kernel = "4.11" ] || [ $kernel = "4.9.6" ]; then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2017-18017"
         elif [ $kernel = "2.6" ];then
