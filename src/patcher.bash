@@ -40,6 +40,8 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-25375"
         elif [ $kernel = "4.11" ] || [ $kernel = "4.9.6" ]; then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2017-18017"
+	elif [ $kernel = "5.19.17" ] || [ $kernel = "6.0.2" ]; then
+                echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-43945"
         elif [ $kernel = "2.6" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2015-8812"
         elif [ $kernel = "3.2" ] || [ $kernel = "3.13" ];then
