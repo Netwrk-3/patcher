@@ -6,10 +6,7 @@ Patcher is a Linux system maintenance and Security tool designed to make system 
 To get started with patcher you need to install it first. For that you need to choose a branch from which you're going to download the patcher executable.
 We have three branches in our Github repository:
 1. stable
-2. beta
-
-Download the latest stable releease [here](https://github.com/Emph-Inc/patcher/releases/download/0.1.33.2-stable/patcher).
-Download the beta release [here](https://github.com/Netwrk-3/patcher/releases/download/beta-0.1.24/patcher).
+2. beta (unsupported & not recieving updates)
 
 ## Installing Patcher
 To install patcher you need yo choose if you want the latest stable release or the latest beta release. We recomend using the stable release for most people. 
