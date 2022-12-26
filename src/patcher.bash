@@ -3,7 +3,7 @@
 #!/bin/bash
 opt=$1
 kernel=$2
-version="0.1.33-stable"
+version="0.1.33.2-stable"
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -27,7 +27,7 @@ secure_reboot() {
 	fi
 }
 if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
- if [ $kernel = "4.8.3" ];then
+        if [ $kernel = "4.8.3" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2016-5195"
         elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ] || [ $kernel = "5.12" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-0847"
@@ -158,18 +158,17 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
 	elif [ $kernel == "5.18.17" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-39189"
 	elif [ $kernel == "6.0.11" ];then
-                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-47521" && echo "CVE-2022-47520" && echo "CVE-2022-47519" && echo "CVE-2022-47518"
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-47521 (https://ubuntu.com/security/CVE-2022-47521)" && echo "CVE-2022-47520 (https://ubuntu.com/security/CVE-2022-47520)" && echo "CVE-2022-47519 (https://ubuntu.com/security/CVE-2022-47519)" && echo "CVE-2022-47518 (https://ubuntu.com/security/CVE-2022-47518)"
 	elif [ $kernel == "6.0.10" ];then
-                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45934" && echo "CVE-2022-45919"
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45934 (https://ubuntu.com/security/CVE-2022-45934)" && echo "CVE-2022-45919 (https://ubuntu.com/security/CVE-2022-45919)"
 	elif [ $kernel == "6.0.9" ];then
-                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45888" && echo "CVE-2022-45887" && echo "CVE-2022-45886" && echo "CVE-2022-45885" && echo "CVE-2022-45884"
-	elif [$kernel == "6.1-rc6"];then
-		echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45869"
-	
-	 
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45888 (https://ubuntu.com/security/CVE-2022-45888)" && echo "CVE-2022-45887 (https://ubuntu.com/security/CVE-2022-45887)" && echo "CVE-2022-45886 (https://ubuntu.com/security/CVE-2022-45886)" && echo "CVE-2022-45885 (https://ubuntu.com/security/CVE-2022-45885)" && echo "CVE-2022-45884 (https://ubuntu.com/security/CVE-2022-45884)"
+	elif [ $kernel == "6.1-rc6" ];then
+		echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45869 (https://ubuntu.com/security/CVE-2022-45869)"
         else
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
+
 elif [ "$opt" = "-v" ] || [ "$opt" = "--version" ];then
         echo "Patcher version $version"
 elif [ "$opt" = "-h" ] || [ "$opt" = "--help" ];then
