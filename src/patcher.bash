@@ -33,9 +33,6 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-0847"
         elif [ $kernel = "5.13" ] || [ $kernel = "5.13.1" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-0742" && echo "CVE-2022-0847" && echo "CVE-2021-33909"
-    # Kernels in which CVE-2022-0847 is patched
-        elif [ $kernel = "5.15.25" ] || [ $kernel = "5.10.102" ] || [ $kernel = "5.16.11" ];then
-                echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
 	elif [ $kernel = "5.16.10" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-25375"
         elif [ $kernel = "4.11" ] || [ $kernel = "4.9.6" ]; then
@@ -160,6 +157,15 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-39842"
 	elif [ $kernel == "5.18.17" ];then
                 echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-39189"
+	elif [ $kernel == "6.0.11" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-47521" && echo "CVE-2022-47520" && echo "CVE-2022-47519" && echo "CVE-2022-47518"
+	elif [ $kernel == "6.0.10" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45934" && echo "CVE-2022-45919"
+	elif [ $kernel == "6.0.9" ];then
+                echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45888" && echo "CVE-2022-45887" && echo "CVE-2022-45886" && echo "CVE-2022-45885" && echo "CVE-2022-45884"
+	elif [$kernel == "6.1-rc6"];then
+		echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45869"
+	
 	 
         else
                 echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
