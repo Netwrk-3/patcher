@@ -2,7 +2,7 @@
 # Copyright (C) 2022 Netwrk-3, Inc. All rights reserved.
 #!/bin/bash
 
-# Patcher is written by Venkatesh Mishra (writes core features) and is currently maintaned by Netwrk-3 (updates patcher-db).
+# Patcher is written by Venkatesh Mishra (writes core features) and is currently maintaned by Netwrk-3 (update patcher-db).
 
 opt=$1
 kernel=$2
