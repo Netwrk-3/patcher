@@ -17,7 +17,7 @@ git clone https://github.com/Netwrk-3/patcher.git
 # go into the cloned repo.
 cd patcher
 # Give the installer script executable permission
-chmod +x ./install.bash (sha256 sum = https://github.com/Netwrk-3/patcher.git)
+chmod +x ./install.bash #(sha256 sum = https://github.com/Netwrk-3/patcher.git)
 # Run the installation script with root privilages using sudo (same can be done using doas or pkexec)
 sudo ./install.bash
 ```
