@@ -25,9 +25,9 @@ sudo ./install.bash
 
 # Some of our recomended kernels
 
-For newer servers: ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v5.15.85)
-For routers and simmilar devices: ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v4.14.302)
-For performence critical systems (has good stability and support for newer hardware): ![website](https://liquorix.net/)
+* For newer servers: ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v5.15.85)
+* For routers and simmilar devices: ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v4.14.302)
+* For performence critical systems (has good stability and support for newer hardware): ![website](https://liquorix.net/)
 
 ***Note: All these kernels have been tested by us and we have also checked their respective source codes for vulnebilities.***
 
