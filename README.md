@@ -24,7 +24,7 @@ sudo ./install.bash
 ```
 
 # Some of our recomended kernels
-Somewhat recent LTS Kernel: [source code] (https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v5.15.85)
+Somewhat recent LTS Kernel: ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v5.15.85)
 
 ## FAQs
 <details>
