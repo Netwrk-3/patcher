@@ -25,8 +25,8 @@ sudo ./install.bash
 
 # Some of our recomended kernels
 
-* For servers with newer hardware (5-6 months old hardware): 5.15.x series
-* For routers and simmilar devices: 4.14.x series or 4.9.x series
+* For servers with newer hardware (5-6 months old hardware): 5.15.x series (Check https://kernel.org)
+* For routers and simmilar devices: 4.14.x series or 4.9.x series (Check https://kernel.org)
 * For performence critical systems (has good stability and support for newer hardware): Liqourix (Recomended for newer hardware, gives better perofmence)  or Xanmod LTS (good performence and great stability)
 
 ***Note: All these kernels have been tested by us and we have also checked their respective source codes for vulnebilities.***
