@@ -25,9 +25,9 @@ sudo ./install.bash
 
 # Some of our recomended kernels
 
-* For servers with newer hardware (5-6 months old hardware): ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v5.15.85)
-* For routers and simmilar devices: ![source code](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v4.14.302)
-* For performence critical systems (has good stability and support for newer hardware): ![website](https://liquorix.net/)
+* For servers with newer hardware (5-6 months old hardware): 5.15.x series
+* For routers and simmilar devices: 4.14.x series or 4.9.x series
+* For performence critical systems (has good stability and support for newer hardware): Liqourix (Recomended for newer hardware, gives better perofmence )or Xanmod LTS (good performence and great stability)
 
 ***Note: All these kernels have been tested by us and we have also checked their respective source codes for vulnebilities.***
 
