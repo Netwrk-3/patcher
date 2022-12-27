@@ -22,15 +22,9 @@ chmod +x ./install.bash
 # Run the installation script with root privilages using sudo (same can be done using doas or pkexec)
 sudo ./install.bash
 ```
-## Check if patcher is installed properly
-* on a debian based system:
-![image](https://user-images.githubusercontent.com/104187311/165019626-4daaf15f-d47e-43c4-b7c9-c525498f0b3a.png)
----
-* on a fedora based system:
-![image](https://user-images.githubusercontent.com/104187311/165018722-46efa242-be14-433d-8d5d-d9e19bf3a718.png)
----
-* on my system:
-![image](https://user-images.githubusercontent.com/104187311/166226609-926a1d76-2558-4e75-8a5c-90490f8f6470.png)
+
+# Some of our recomended kernels
+Somewhat recent LTS Kernel: [source code] (https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/?h=v5.15.85)
 
 ## FAQs
 <details>
