@@ -6,18 +6,18 @@
 
 opt=$1
 kernel=$2
-version="0.1.33.3-stable"
+version="0.1.34-stable"
 RED='\033[0;31m'
 NC='\033[0m'
 
 help_menu () {
-   echo "patcher: The ultimate Linux system maintainence and security tool." && echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]' && echo 'patcher -v or patcher --version [print the version of patcher]' && echo 'patcher -h or patcher --help [print the help menu]' && echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]' && echo 'patcher kernel [display the kernel you are currently using]' && echo "patcher ip [display your system's public ip adress]" && echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]" && echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]" && echo "patcher update [update patcher to the latest stable release]" && echo "patcher devs [patcher development team list]"
+   echo "Patcher: The ultimate Linux system maintainence and security tool." && echo 'patcher -s or patcher --scan [scan a kernel version for vulnebilities]' && echo 'patcher -v or patcher --version [print the version of patcher]' && echo 'patcher -h or patcher --help [print the help menu]' && echo 'patcher -c or patcher --clean [cleanup your system and free up disk space]' && echo 'patcher kernel [display the kernel you are currently using]' && echo "patcher ip [display your system's public ip adress]" && echo "patcher --restart [reboots your machine securely using patcher's reboot scirpt]" && echo "patcher -hr or patcher --harden [harden the endpoint linux kernel]" && echo "patcher update [update patcher to the latest stable release]" && echo "patcher devs [patcher development team list]"
 }
-update_patcher() {
+update_Patcher() {
         if [ "$(id -u)" -ne 0 ]; then
                 printf "${RED}[!] Error:${NC} Patcher needs to be updated with root privilages (use sudo or doas)\n"
         else
-                echo "updating patcher..." && git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
+                echo "updating Patcher..." && git clone https://github.com/Emph-Inc/patcher.git && cd patcher && cd src && cp ./patcher.bash ./patcher && chmod +x ./patcher && cp ./patcher /usr/local/bin/ && cd .. && cd .. && rm -rf patcher/
                 echo "Sucessfully Updated!"
         fi
 }
@@ -25,7 +25,7 @@ secure_reboot() {
 	if [ "$(id -u)" -ne 0 ];then
 		printf "${RED}[!] Error:${NC} Try again with sudo or doas!\n"
 	else
-		killall $USER && echo 3 > /proc/sys/vm/drop_caches && patcher -c && reboot # works best with systemd
+		killall $USER && echo 3 > /proc/sys/vm/drop_caches && Patcher -c && reboot # works best with systemd
         rm -rf /tmp/*
 	fi
 }
@@ -169,7 +169,7 @@ if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
 	elif [ $kernel == "6.1-rc6" ];then
 		echo "Kernel version $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-45869 (https://ubuntu.com/security/CVE-2022-45869)"
         else
-                echo "patcher-db did not find any vulnebilities for Linux kernel version $kernel"
+                echo "Patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
 
 elif [ "$opt" = "-v" ] || [ "$opt" = "--version" ];then
@@ -181,15 +181,15 @@ elif [ "$opt" = "kernel" ];then
         host_arch=$(uname -m) # Get the CPU's rchitecure
         echo "Endpoint kernel: $host_kernel" && echo "Endpoint architecture: $host_arch"
 elif [ "$opt" = "devs" ];then
-    echo 'Patcher development team:' && echo '1. Venkatesh Mishra (head developer)' && echo "See patcher's source code at: https://github.com/Netwrk-3/patcher" && echo "patcher's official website: https://netwrk-3.github.io/patcher/"
+    echo 'Patcher development team:' && echo '1. Venkatesh Mishra (head developer)' && echo "See Patcher's source code at: https://github.com/Netwrk-3/patcher" && echo "patcher's official website: https://netwrk-3.github.io/patcher/"
 elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
         if [ "$(id -u)" -ne 0 ]; then
-            printf "${RED}[!] Error:${NC} patcher's cleanup script requires evelavted privilages!\n"
+            printf "${RED}[!] Error:${NC} Patcher's cleanup script requires evelavted privilages!\n"
         else
-            echo 'starting patcher cleanup script.' && echo 'deleting cache files...' && rm -rf /home/$USER/.cache/* && echo 'deleting temperary files...' && rm -rf /tmp/* && rm -rf /var/tmp/* && echo 'dropping cached memory...' && echo 3 > /proc/sys/vm/drop_caches
+            echo 'starting Patcher cleanup script.' && echo 'deleting cache files...' && rm -rf /home/$USER/.cache/* && echo 'deleting temperary files...' && rm -rf /tmp/* && rm -rf /var/tmp/* && echo 'dropping cached memory...' && echo 3 > /proc/sys/vm/drop_caches
         fi
 elif [ "$opt" = "update" ];then
-    update_patcher
+    update_Patcher
 elif [ "$opt" = "ip" ];then
     ip=$(curl -s 'api.ipify.org') && echo "Public IP adress: $ip"
     echo "Type: IPv4"
@@ -203,7 +203,7 @@ elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
    	systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
    fi
 elif [ "$opt" = "-shk" ];then
-    kernel=$(uname -r | cut -b 1-5) && bash patcher.bash -s $kernel
+    kernel=$(uname -r | cut -b 1-5) && bash Patcher.bash -s $kernel
 else
-    printf "${RED}[!] Error:${NC} please enter a valid argument (use patcher -h to see valid arguments)\n"
+    printf "${RED}[!] Error:${NC} please enter a valid argument (use Patcher -h to see valid arguments)\n"
 fi
