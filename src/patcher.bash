@@ -29,8 +29,13 @@ secure_reboot() {
         rm -rf /tmp/*
 	fi
 }
-if [ "$opt" = "-s" ] || [ "$opt" = "--scan" ];then
-        if [ $kernel = "4.8.3" ];then
+
+case "$command" in
+    -s|--scan)
+        if [[ -z $kernel_version ]]; then
+            printf "${RED}[!] Error:${NC} Please provide a kernel version to scan\n"
+            exit 1
+        elif [ $kernel = "4.8.3" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2016-5195"
         elif [ $kernel = "5.14.01" ] || [ $kernel = "5.8" ] || [ $kernel = "5.9" ] || [ $kernel = "5.10" ] || [ $kernel = "5.12" ];then
                 echo "Kernel verison $kernel is vulnerable to the following vulnerablities: " && echo "CVE-2022-0847"
