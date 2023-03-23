@@ -9,7 +9,7 @@ main() {
                 printf "${RED}[!] Error:${NC} patcher's installation script requires evelavted privilages!\n"
         else
                 echo "installing patcher..."
-                cd src && cp patcher.bash patcher &&chmod +x patcher && cp ./patcher /usr/local/bin
+                cp ./src/patcher.bash /usr/local/bin/patcher && chmod +x /usr/local/bin/patcher
                 echo "Done!"
         fi
 }
