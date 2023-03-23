@@ -45,7 +45,7 @@ Question asked at 16:33 UTC 23 April 2022
 <details open>
 <summary>How to contribute to patcher</summary>
 <br>
-You can contribute code to patcher from our github repository at https://github.com/Emph-Inc/patcher
+You can contribute code to patcher from our github repository at https://github.com/Netwrk-3/patcher
 <br><br>
 <pre>
 Question asked at 13:56 IST 22 April 2022
