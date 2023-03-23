@@ -9,7 +9,7 @@ We have the stable branch which is updated by our team frequently.
 To install patcher you need yo choose if you want the latest stable release or the latest beta release. We recomend using the stable release for most people. 
 
 ```bash
-# Clone into our Github repositoty via git
+# Clone into our Github repositoty via git to your prefered folder / directory (like /tmp)
 git clone https://github.com/Netwrk-3/patcher.git
 # go into the cloned repo.
 cd patcher
