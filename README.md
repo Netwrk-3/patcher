@@ -13,8 +13,10 @@ To install patcher you need yo choose if you want the latest stable release or t
 git clone https://github.com/Netwrk-3/patcher.git
 # go into the cloned repo.
 cd patcher
+# Check the SHA-256 sum of the file (Ideal output: install.bash: OK)
+echo 590103830b9a4c3ae4ae3320fce41cf458dc8e2ea0f31ceaf7d113cf0255edba install.bash | sha256sum -c 
 # Give the installer script executable permission
-chmod +x ./install.bash #(sha256 sum = https://github.com/Netwrk-3/patcher.git)
+chmod +x ./install.bash 
 # Run the installation script with root privilages using sudo (same can be done using doas or pkexec)
 sudo ./install.bash
 ```
