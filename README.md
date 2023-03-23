@@ -1,6 +1,5 @@
 ## What is Patcher
-
-Patcher is a Linux system maintenance and Security tool designed to make system maintenance tasks easier. Such as finding vulnebilities in the    Linux kernel verison you are currently using and patching them. Deleting useless files to free up disk space and more. It's a free and opensource tool published under the GNU GPL v3 license.
+This is a command-line utility for scanning a Linux kernel for vulnerabilities, freeing up disk space, and performing other essential system administration tasks.
 
 ## Getting started
 To get started with patcher you need to install it first. For that you need to choose a branch from which you're going to download the patcher executable.
