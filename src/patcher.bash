@@ -177,38 +177,51 @@ case "$command" in
                 echo "Patcher-db did not find any vulnebilities for Linux kernel version $kernel"
         fi
 
-elif [ "$opt" = "-v" ] || [ "$opt" = "--version" ];then
+    -v|--version)
         echo "Patcher version $version"
-elif [ "$opt" = "-h" ] || [ "$opt" = "--help" ];then
-    help_menu
-elif [ "$opt" = "kernel" ];then
-        host_kernel=$(uname -rs) # Get the name & version of the kernel
-        host_arch=$(uname -m) # Get the CPU's rchitecure
-        echo "Endpoint kernel: $host_kernel" && echo "Endpoint architecture: $host_arch"
-elif [ "$opt" = "devs" ];then
-    echo 'Patcher development team:' && echo '1. Venkatesh Mishra (head developer)' && echo "See Patcher's source code at: https://github.com/Netwrk-3/patcher" && echo "patcher's official website: https://netwrk-3.github.io/patcher/"
-elif [ "$opt" = "-c" ] || [ "$opt" = "--clean" ];then
-        if [ "$(id -u)" -ne 0 ]; then
+        ;;
+    -h|--help)
+        help_menu
+        ;;
+    -c|--clean)
+        # code to clean up disk space
+	if [ "$(id -u)" -ne 0 ]; then
             printf "${RED}[!] Error:${NC} Patcher's cleanup script requires evelavted privilages!\n"
         else
             echo 'starting Patcher cleanup script.' && echo 'deleting cache files...' && rm -rf /home/$USER/.cache/* && echo 'deleting temperary files...' && rm -rf /tmp/* && rm -rf /var/tmp/* && echo 'dropping cached memory...' && echo 3 > /proc/sys/vm/drop_caches
         fi
-elif [ "$opt" = "update" ];then
-    update_Patcher
-elif [ "$opt" = "ip" ];then
-    ip=$(curl -s 'api.ipify.org') && echo "Public IP adress: $ip"
-    echo "Type: IPv4"
-elif [ "$opt" = "--restart" ];then
-    secure_reboot
-elif [ "$opt" = "-hr" ] || [ "$opt" = "--harden" ];then
-   if [ "$(id -u)" -ne 0 ]; then
-    printf "${RED}[!] Error:${NC} Harden your system using sudo or doas, please use either one of them and try agian\n"
-   else
-   	echo "Hardening your linux kernel..."
-   	systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
-   fi
-elif [ "$opt" = "-shk" ];then
-    kernel=$(uname -r | cut -b 1-5) && bash Patcher.bash -s $kernel
-else
-    printf "${RED}[!] Error:${NC} please enter a valid argument (use Patcher -h to see valid arguments)\n"
-fi
+        ;;
+    kernel)
+        # code to display kernel version
+	host_kernel=$(uname -rs) # Get the name & version of the kernel
+        host_arch=$(uname -m) # Get the CPU's rchitecure
+        echo "Endpoint kernel: $host_kernel" && echo "Endpoint architecture: $host_arch"
+        ;;
+    ip)
+        # code to display public IP address
+	ip=$(curl -s 'api.ipify.org') && echo "Public IP adress: $ip"
+   	echo "Type: IPv4"
+        ;;
+    --restart)
+        secure_reboot
+        ;;
+    -hr|--harden)
+        # code to harden the kernel
+	if [ "$(id -u)" -ne 0 ]; then
+   		printf "${RED}[!] Error:${NC} Harden your system using sudo or doas, please use either one of them and try agian\n"
+  	else
+   		echo "Hardening your linux kernel..."
+   		systctl kernel.pid_max = 65536; sysctl kernel.core_uses_pid = 1;sysctl kernel.ctrl-alt-del = 0;sysctl kernel.shmmax = 268435456;sysctl kernel.shmall = 268435456;sysctl kernel.printk=3 3 3 3;sysctl kernel.sysrq=4; sysctl kernel.kptr_restrict=2; sysctl kernel.unprivileged_bpf_disabled=1;sysctl kernel.kexec_load_disabled=1;sysctl kernel.unprivileged_userns_clone=0; sysctl kernel.perf_event_paranoid=3;sysctl  kernel.yama.ptrace_scope=2;sysctl kernel.core_uses_pid = 1 && sysctl -p
+   	fi
+        ;;
+    update)
+        update_patcher
+        ;;
+    devs)
+        # code to display development team list
+	echo 'Patcher development team:' && echo '1. Venkatesh Mishra (head developer)' && echo "See Patcher's source code at: https://github.com/Netwrk-3/patcher" && echo "patcher's official website: https://netwrk-3.github.io/patcher/"
+        ;;
+    *)
+        printf "${RED}[!] Error:${NC} please enter a valid argument (use Patcher -h to see valid arguments)\n"
+        ;;
+esac
