@@ -14,7 +14,7 @@ git clone https://github.com/Netwrk-3/patcher.git
 # go into the cloned repo.
 cd patcher
 # Check the SHA-256 sum of the file (Ideal output: install.bash: OK)
-echo 590103830b9a4c3ae4ae3320fce41cf458dc8e2ea0f31ceaf7d113cf0255edba install.bash | sha256sum -c 
+echo 4cad7b9f78381dbb1e10a61bd41bbe2435a904253a42af410a8777948647671 install.bash | sha256sum -c 
 # Give the installer script executable permission
 chmod +x ./install.bash 
 # Run the installation script with root privilages using sudo (same can be done using doas or pkexec)
